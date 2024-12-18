@@ -2,6 +2,8 @@ import dotenv from "dotenv";
 import express, { json } from "express";
 import cors from "cors";
 import connectDB from "./config/database.js";
+import mongoose from "mongoose";
+
 import participantRoutes from "./routes/participantRoutes.js";
 import helmet from "helmet";
 import morgan from "morgan";
@@ -29,12 +31,23 @@ app.use(json());
 app.use(express.json());
 
 // Connect to Database
-connectDB().then(() => {
-  app.get("/", (req, res) => {
-    res.send("Hello World!");
-  });
-  app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-});
+
+mongoose
+  .connect(
+    "mongodb+srv://ghost:ghost99@esm.gjtd61h.mongodb.net/ESM?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    app.get("/", (req, res) => {
+      res.send("Hello World!");
+    });
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+  })
+  .catch((error) => console.log(`${error} did not connect`));
+
 
 // Routes
 app.use("/api/research", participantRoutes);

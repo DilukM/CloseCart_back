@@ -1,6 +1,9 @@
 const ResearchParticipant = require('../models/ResearchParticipant');
 
 exports.createParticipant = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   try {
     // Check if email already exists
     const existingParticipant = await ResearchParticipant.findOne({ 

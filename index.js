@@ -12,7 +12,6 @@ dotenv.config();
 app.use(cors());
 app.use(json());
 
-app.use(express.json());
 
 // Connect to Database
 connectDB().then(() => {

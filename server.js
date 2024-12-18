@@ -1,12 +1,13 @@
-
+import dotenv from "dotenv";
 import express, { json } from "express";
 import cors from "cors";
 import connectDB from "./config/database.js";
+import mongoose from "mongoose";
 import participantRoutes from "./routes/participantRoutes.js";
 
 const app = express();
-const PORT = 5000;
-
+const PORT = process.env.PORT || 5000;
+dotenv.config();
 
 // Middleware
 app.use(cors({
@@ -16,13 +17,24 @@ app.use(cors({
 }));
 app.use(json());
 
+app.use(express.json());
+
 // Connect to Database
-connectDB().then(() => {
-  app.get("/", (req, res) => {
-    res.send("Hello World!");
-  });
-  app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-});
+mongoose
+  .connect(
+    process.env.MONGODB_URI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    app.get("/", (req, res) => {
+      res.send("Hello World!");
+    });
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+  })
+  .catch((error) => console.log(`${error} did not connect`));
 
 // Routes
 app.use("/api/research", participantRoutes);
@@ -33,7 +45,7 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
     message: "Something went wrong!",
-    error: "production" === "production" ? {} : err.stack,
+    error: process.env.NODE_ENV === "production" ? {} : err.stack,
   });
 });
 

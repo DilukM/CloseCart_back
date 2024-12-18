@@ -21,7 +21,7 @@ const ResearchParticipantSchema = new mongoose.Schema(
       lowercase: true,
       match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"],
     },
-    mobileNumber: {
+    phoneNumber: {
       type: String,
       required: true,
       trim: true,

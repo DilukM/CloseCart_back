@@ -4,7 +4,7 @@ export async function createParticipant(req, res) {
   
   try {
     // Check if email already exists
-    const existingParticipant = await findOne({ 
+    const existingParticipant = await ResearchParticipant.findOne({ 
       $or: [
         { email: req.body.email }, 
         { mobileNumber: req.body.mobileNumber }

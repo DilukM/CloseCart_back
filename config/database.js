@@ -2,7 +2,7 @@ import { connect } from 'mongoose';
 
 const connectDB = async () => {
   try {
-    await connect(process.env.MONGODB_URI, {
+    await connect("mongodb+srv://c99ghost:eeoNhfjapavDhoHH@formsubmissions.y9waj.mongodb.net/?retryWrites=true&w=majority&appName=formSubmissions", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

@@ -1,10 +1,10 @@
-const ResearchParticipant = require('../models/ResearchParticipant');
+import ResearchParticipant from '../models/ResearchParticipant.js';
 
-exports.createParticipant = async (req, res) => {
+export async function createParticipant(req, res) {
   
   try {
     // Check if email already exists
-    const existingParticipant = await ResearchParticipant.findOne({ 
+    const existingParticipant = await findOne({ 
       $or: [
         { email: req.body.email }, 
         { mobileNumber: req.body.mobileNumber }
@@ -41,4 +41,4 @@ exports.createParticipant = async (req, res) => {
       message: 'Server error during participant registration' 
     });
   }
-};
+}

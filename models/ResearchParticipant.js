@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ResearchParticipantSchema = new mongoose.Schema(
   {
@@ -114,7 +114,5 @@ ResearchParticipantSchema.pre("save", function (next) {
   next();
 });
 
-module.exports = mongoose.model(
-  "ResearchParticipant",
-  ResearchParticipantSchema
-);
+const ResearchParticipant = mongoose.model("ResearchParticipant", ResearchParticipantSchema);
+export default ResearchParticipant;

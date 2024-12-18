@@ -9,11 +9,7 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 
 // Middleware
-app.use(cors({
-  origin: ["https://closecart-front.vercel.app/"],
-  method: ["POST", "GET"],
-  credentials: true,
-}));
+app.use(cors());
 app.use(json());
 
 app.use(express.json());
@@ -29,7 +25,6 @@ connectDB().then(() => {
 // Routes
 app.use("/api/research", participantRoutes);
 
-
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -38,5 +33,3 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === "production" ? {} : err.stack,
   });
 });
-
-

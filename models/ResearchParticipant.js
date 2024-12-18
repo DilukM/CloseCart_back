@@ -26,17 +26,19 @@ const ResearchParticipantSchema = new mongoose.Schema(
       required: true,
       trim: true,
       validate: {
-        validator: function(v) {
+        validator: function (v) {
           // Regex for common phone number formats
           // Supports formats like:
           // (123) 456-7890
           // 123-456-7890
           // 123.456.7890
           // 1234567890
-          return /^(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/.test(v);
+          return /^(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/.test(
+            v
+          );
         },
-        message: props => `${props.value} is not a valid phone number!`
-      }
+        message: (props) => `${props.value} is not a valid phone number!`,
+      },
     },
 
     // Demographic Information
@@ -78,7 +80,14 @@ const ResearchParticipantSchema = new mongoose.Schema(
     averageMonthlySpending: {
       type: String,
       required: true,
-      enum: ["0-100", "101-250", "251-500", "501-1000", "1000+"],
+      enum: [
+        "10000-",
+        "10001-25000",
+        "25001-50000",
+        "50001-100000",
+        "100001-200000",
+        "200000+",
+      ],
     },
 
     // Communication Preferences
@@ -114,5 +123,8 @@ ResearchParticipantSchema.pre("save", function (next) {
   next();
 });
 
-const ResearchParticipant = mongoose.model("ResearchParticipant", ResearchParticipantSchema);
+const ResearchParticipant = mongoose.model(
+  "ResearchParticipant",
+  ResearchParticipantSchema
+);
 export default ResearchParticipant;

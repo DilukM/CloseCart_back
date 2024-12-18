@@ -17,6 +17,7 @@ connectDB();
 // Routes
 app.use("/api/research", participantRoutes);
 
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);

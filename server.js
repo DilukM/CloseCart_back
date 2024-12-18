@@ -22,7 +22,7 @@ app.use(express.json());
 // Connect to Database
 mongoose
   .connect(
-    process.env.MONGODB_URI,
+    "mongodb+srv://ghost:ghost99@esm.gjtd61h.mongodb.net/ESM?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

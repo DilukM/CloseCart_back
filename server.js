@@ -20,7 +20,7 @@ connectDB().then(() => {
   app.get("/", (req, res) => {
     res.send("Hello World!");
   });
- 
+  app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 });
 
 // Routes
@@ -36,7 +36,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+

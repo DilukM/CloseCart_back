@@ -4,20 +4,20 @@ export async function createParticipant(req, res) {
   
   try {
     // Check if email already exists
-    const existingParticipant = await ResearchParticipant.findOne({ 
-      $or: [
-        { email: req.body.email }, 
-        { mobileNumber: req.body.mobileNumber }
-      ] 
+    // const existingParticipant = await ResearchParticipant.findOne({ 
+    //   $or: [
+    //     { email: req.body.email }, 
+    //     { mobileNumber: req.body.mobileNumber }
+    //   ] 
       
-    });
+    // });
 
-    if (existingParticipant) {
-      let conflictField = existingParticipant.email === req.body.email ? 'Email' : 'Mobile number';
-      return res.status(409).json({ 
-        message: `${conflictField} already registered for research participation` 
-      });
-    }
+    // if (existingParticipant) {
+    //   let conflictField = existingParticipant.email === req.body.email ? 'Email' : 'Mobile number';
+    //   return res.status(409).json({ 
+    //     message: `${conflictField} already registered for research participation` 
+    //   });
+    // }
 
     // Create new participant
     const newParticipant = new ResearchParticipant(req.body);

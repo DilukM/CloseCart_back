@@ -5,40 +5,43 @@ const ResearchParticipantSchema = new mongoose.Schema(
     // Personal Details
     firstName: {
       type: String,
-      required: true,
+      default: null,
+      required: false,
       trim: true,
     },
     lastName: {
       type: String,
-      required: true,
+      default: null,
+      required: false,
       trim: true,
     },
     email: {
       type: String,
-      required: true,
-      unique: true,
+      required: false,
+      default: null,
       trim: true,
       lowercase: true,
-      match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"],
+      // match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"],
     },
     mobileNumber: {
       type: String,
-      required: true,
+      required: false,
+      default: null,
       trim: true,
-      validate: {
-        validator: function (v) {
-          // Regex for common phone number formats
-          // Supports formats like:
-          // (123) 456-7890
-          // 123-456-7890
-          // 123.456.7890
-          // 1234567890
-          return /^(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/.test(
-            v
-          );
-        },
-        message: (props) => `${props.value} is not a valid phone number!`,
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     // Regex for common phone number formats
+      //     // Supports formats like:
+      //     // (123) 456-7890
+      //     // 123-456-7890
+      //     // 123.456.7890
+      //     // 1234567890
+      //     return /^(\+\d{1,2}\s?)?(\(?\d{3}\)?[\s.-]?)?\d{3}[\s.-]?\d{4}$/.test(
+      //       v
+      //     );
+      //   },
+      //   message: (props) => `${props.value} is not a valid phone number!`,
+      // },
     },
 
     // Demographic Information

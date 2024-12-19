@@ -16,14 +16,14 @@ export const validateParticipantData = (req, res, next) => {
   const errors = {};
 
   // Validation logic
-  if (!firstName || firstName.trim() === "")
-    errors.firstName = "First name is required";
-  if (!lastName || lastName.trim() === "")
-    errors.lastName = "Last name is required";
+  // if (!firstName || firstName.trim() === "")
+  //   errors.firstName = "First name is required";
+  // if (!lastName || lastName.trim() === "")
+  //   errors.lastName = "Last name is required";
 
-  const emailRegex = /^\S+@\S+\.\S+$/;
-  if (!email || !emailRegex.test(email))
-    errors.email = "Valid email is required";
+  // const emailRegex = /^\S+@\S+\.\S+$/;
+  // if (!email || !emailRegex.test(email))
+  //   errors.email = "Valid email is required";
 
   if (!age) errors.age = "Age group is required";
   if (!gender) errors.gender = "Gender is required";

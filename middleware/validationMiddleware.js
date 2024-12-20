@@ -10,6 +10,8 @@ export const validateParticipantData = (req, res, next) => {
     preferredCategories,
     averageMonthlySpending,
     communicationPreference,
+    offerPreferences,
+    shoppingMethod,
     termsConsent,
   } = req.body;
 

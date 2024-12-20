@@ -99,7 +99,7 @@ const ResearchParticipantSchema = new mongoose.Schema(
       enum: ["Online", "Physical Store", "Both",],
     },
 
-    offerPreferences: {
+    offerPreference: {
       type: String,
       required: true,
       enum: [

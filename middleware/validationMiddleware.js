@@ -10,7 +10,7 @@ export const validateParticipantData = (req, res, next) => {
     preferredCategories,
     averageMonthlySpending,
     communicationPreference,
-    offerPreferences,
+    offerPreference,
     shoppingMethod,
     termsConsent,
   } = req.body;
@@ -37,8 +37,8 @@ export const validateParticipantData = (req, res, next) => {
   if (!preferredCategories || preferredCategories.length === 0)
     errors.preferredCategories = "At least one category must be selected";
 
-  if (!offerPreferences)
-    errors.offerPreferences = "Offer Preferences is required";
+  if (!offerPreference)
+    errors.offerPreference = "Offer Preferences is required";
 
   if (!shoppingMethod)
     errors.shoppingMethod = "Shopping Method is required";

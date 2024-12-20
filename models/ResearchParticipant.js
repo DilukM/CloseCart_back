@@ -100,7 +100,7 @@ const ResearchParticipantSchema = new mongoose.Schema(
     },
 
     offerPreferences: {
-      type: [String],
+      type: String,
       required: true,
       enum: [
         "instantGrabber",

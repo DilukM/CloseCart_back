@@ -35,6 +35,12 @@ export const validateParticipantData = (req, res, next) => {
   if (!preferredCategories || preferredCategories.length === 0)
     errors.preferredCategories = "At least one category must be selected";
 
+  if (!offerPreferences || offerPreferences.length === 0)
+    errors.offerPreferences = "At least one option must be selected";
+
+  if (!shoppingMethod)
+    errors.shoppingMethod = "Shopping Method is required";
+
   if (!averageMonthlySpending)
     errors.averageMonthlySpending = "Average spending is required";
   if (!communicationPreference)

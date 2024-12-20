@@ -93,6 +93,31 @@ const ResearchParticipantSchema = new mongoose.Schema(
       ],
     },
 
+    shoppingMethod: {
+      type: String,
+      required: true,
+      enum: ["Online", "Physical Store", "Both",],
+    },
+
+    offerPreferences: {
+      type: [String],
+      required: true,
+      enum: [
+        "instantGrabber",
+        "activeHunter",
+        "waitForSales",
+        "compareOffers",
+        "loyaltyPrograms",
+        "occasionalBuyer",
+        "plannedOnly",
+        "qualityConcerned",
+        "brandLoyal",
+        "rarelyUse",
+        "skeptical",
+        "dislike",
+      ],
+    },
+
     // Communication Preferences
     communicationPreference: {
       type: String,

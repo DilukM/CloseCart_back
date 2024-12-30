@@ -45,8 +45,8 @@ export const validateParticipantData = (req, res, next) => {
 
   if (!averageMonthlySpending)
     errors.averageMonthlySpending = "Average spending is required";
-  if (!communicationPreference)
-    errors.communicationPreference = "Communication preference is required";
+  // if (!communicationPreference)
+  //   errors.communicationPreference = "Communication preference is required";
 
   if (!termsConsent) errors.termsConsent = "Consent is required";
 

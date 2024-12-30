@@ -120,11 +120,11 @@ const ResearchParticipantSchema = new mongoose.Schema(
     },
 
     // Communication Preferences
-    communicationPreference: {
-      type: String,
-      required: true,
-      enum: ["email", "sms", "push-notification", "no-communication"],
-    },
+    // communicationPreference: {
+    //   type: String,
+    //   required: true,
+    //   enum: ["email", "sms", "push-notification", "no-communication"],
+    // },
 
     // Consent
     termsConsent: {

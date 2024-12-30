@@ -72,6 +72,7 @@ const ResearchParticipantSchema = new mongoose.Schema(
       required: true,
       enum: [
         "Electronics",
+        "Groceries",
         "Fashion",
         "Food & Dining",
         "Home & Garden",
@@ -96,7 +97,7 @@ const ResearchParticipantSchema = new mongoose.Schema(
     shoppingMethod: {
       type: String,
       required: true,
-      enum: ["Online", "Physical Store", "Both",],
+      enum: ["Online", "Physical Store", "Both"],
     },
 
     offerPreference: {
